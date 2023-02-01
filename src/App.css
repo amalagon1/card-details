@@ -16,6 +16,8 @@
 }
 
 body {
+  font-family: Space, Grotesk, sans-serif;
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -75,6 +77,10 @@ form{
   width: 80%;
 }
 
+label{
+  font-size: .8rem;
+}
+
 .expiration_items{
   display: flex;
 }
@@ -129,6 +135,9 @@ flex-direction: column;
 
 .btn {
   margin-top: 2rem;
-  height: 2.5rem;
+  height: 3rem;
   border-radius: 7px;
+  border: none;
+  color: white;
+  background: var(--Very-dark-violet);
 }

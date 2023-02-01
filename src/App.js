@@ -11,6 +11,7 @@ function App() {
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
   const [cvc, setCvc] = useState("");
+  const [submit, setSubmit] = useState(false);
 
   return (
     <div className="card">
@@ -18,9 +19,9 @@ function App() {
         <div className="top">
           <img className=" credit card-back" src={cardBack}></img>
           <img className="credit card-front" src={cardFront}></img>
-          <p className="number">{cardNum ? cardNum : "0000 0000 0000 0000"}</p>
-          <p className="name">{name ? name : "your name here"}</p>
-          <p className="date-display">{month && day ? month + "/" + day : "00 / 00"}</p>
+          <p className="number">{submit && cardNum ? cardNum : "0000 0000 0000 0000"}</p>
+          <p className="name">{submit && name ? name : "your name here"}</p>
+          <p className="date-display">{submit && month && day ? month + "/" + day : "00 / 00"}</p>
         </div>
         <div className="bottom">
           <Form
@@ -33,7 +34,9 @@ function App() {
             day={day}
             setDay={setDay}
             cvc={cvc}
-            setCvc={setCvc}>
+            setCvc={setCvc}
+            submit={submit}
+            setSubmit={setSubmit}>
           </Form>
         </div>
       </div>

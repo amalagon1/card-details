@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import '../App.css';
 
-const Form = ({ setName, name, setCardNum, cardNum, day, setDay, month, setMonth, cvc, setCvc }) => {
+const Form = ({
+    setName,
+    name,
+    setCardNum,
+    cardNum, day,
+    setDay,
+    month,
+    setMonth,
+    cvc,
+    setCvc,
+    submit,
+    setSubmit
+}) => {
 
     // const [name, setName] = useState("");
     const handleName = (e) => {
@@ -25,6 +37,18 @@ const Form = ({ setName, name, setCardNum, cardNum, day, setDay, month, setMonth
     const handleCvc = (e) => {
         console.log(e.target.value)
         setCvc(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        // name && cardNum && month && day ? setSubmit(true) : window.alert("you must fill out the required fields")
+        if (name && cardNum && month && day) {
+            setSubmit(true)
+        } else {
+            window.alert("you must fill all the fields")
+            setSubmit(false)
+
+        }
+        e.preventDefault()
     }
 
     return (
@@ -65,8 +89,8 @@ const Form = ({ setName, name, setCardNum, cardNum, day, setDay, month, setMonth
                 </div>
 
             </div>
-            <button class='btn'>Confirm</button>
-        </form>
+            <button className='btn' onClick={handleSubmit}>Confirm</button>
+        </form >
     )
 }
 
